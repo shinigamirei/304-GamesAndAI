@@ -7,7 +7,6 @@ public class GameController : MonoBehaviour {
 
 	public GameObject player;//reference to player object
 	public GameObject enemy1;
-	public GameObject enemy2;
 
 	public Transform playerStartLoc;//reference to starting locations for spawning and round reset
 	public Transform enemyStartLoc;
@@ -16,13 +15,10 @@ public class GameController : MonoBehaviour {
 	public Text generalDisplay2;
 	public Text roundStartText;
 	public Text countdown;
-	public Text pSkillDisplay;
 	public Text roundTime;
 	enum series {Static,Scaling,Procedural}
 
 	public float timer;
-	public float pSkill = 1;
-	public int seriesNo = 1;//the series type, 1 is static,2 is scaling, 3 is procedural
 	public int round;
 
 	void Start()
@@ -34,30 +30,11 @@ public class GameController : MonoBehaviour {
 
 	void Update()
 	{
-		pSkillDisplay.text = ("Round " + round);
 		countdown.text = (Mathf.Floor(timer).ToString());
 
-		//keypad inputs for examiner use
+		//keypad inputs for setup
 		if (Input.GetKeyDown (KeyCode.Keypad1))
 			ResetRound ();
-
-		if (Input.GetKeyDown (KeyCode.Keypad2)) 
-		{
-			pSkill = 5;
-			seriesNo = (int)series.Procedural;
-			ResetRound ();
-			generalDisplay1.enabled = true;
-			generalDisplay1.text = "High Skill Debug";
-		}
-
-		if (Input.GetKeyDown (KeyCode.Keypad3))
-			generalDisplay1.enabled = false;
-
-		if (Input.GetKeyDown(KeyCode.Keypad4))
-		{
-			generalDisplay1.enabled = true;
-			generalDisplay1.text = (pSkill.ToString());
-		}
 
 		if (Input.GetKeyDown (KeyCode.Keypad5)) 
 		{
@@ -68,32 +45,6 @@ public class GameController : MonoBehaviour {
 			player.GetComponent<PlayerControler> ().HitStunEnd ();
 		}
 
-		if (Input.GetKeyDown (KeyCode.Keypad7)) //7 on the numpad starts the static playthrough
-		{
-			pSkill = 1;
-			seriesNo = (int)series.Static;
-			round = 1;
-			ResetRound ();
-			generalDisplay1.enabled = false;
-		}
-
-		if (Input.GetKeyDown (KeyCode.Keypad8)) //8 on the numpad starts the scaling playthrough
-		{
-			pSkill = 1;
-			seriesNo = (int)series.Scaling;
-			round = 1;
-			ResetRound ();
-			generalDisplay1.enabled = false;
-		}
-
-		if (Input.GetKeyDown (KeyCode.Keypad9)) //9 on the numpad starts the procedural playthrough
-		{
-			pSkill = 1;
-			seriesNo = (int)series.Procedural;
-			round = 1;
-			ResetRound ();
-			generalDisplay1.enabled = false;
-		}
 	}
 
 	void FixedUpdate()
@@ -115,7 +66,7 @@ public class GameController : MonoBehaviour {
 		generalDisplay2.text = ("Hit numpad1 to restart round");
 	}
 
-	public void EnemyDeath()
+	public void AiDeath()
 	{
 		//congrats
 		enemy1.SetActive(false);
@@ -124,7 +75,6 @@ public class GameController : MonoBehaviour {
 
 	void ResetSeries()//returns to first round of series
 	{
-		pSkill = 1;
 		ResetRound ();
 	}
 
@@ -148,37 +98,11 @@ public class GameController : MonoBehaviour {
 		player.GetComponent<PlayerControler> ().RoundStart ();
 	}
 
-	void RoundEnd()//when player defeats opponent
+	void RoundEnd()//when player defeats AI
 	{
-		round += 1;
-		if (round > 5)
-		{
-			generalDisplay1.enabled = true;
-			generalDisplay1.text = ("congrats, you're a third done");
-			generalDisplay2.enabled = true;
-			generalDisplay2.text = ("now answer some questions please");
-		}
 
-		else if (seriesNo == (int)series.Static)
-			ResetRound ();
-		else if (seriesNo == (int)series.Scaling) 
-		{
-			pSkill += 1;
-			ResetRound ();
-		} 
-		else if (seriesNo == (int)series.Procedural) 
-		{
-			if (player == null) {}
-			else
-			{
-				float remainingHealth = player.GetComponent<PlayerControler> ().health;
-				pSkill += (remainingHealth / 100 * 2); //get player health /100 
-				//time based skill addition to be added later
-				ResetRound();
-			
-			}
-		}
 	}
+
 	public void KnifeReact()
 	{
 		enemy1.GetComponent<EnemyControler> ().KnifeReact ();

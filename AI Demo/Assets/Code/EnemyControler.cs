@@ -39,12 +39,10 @@ public class EnemyControler : MonoBehaviour {
 	public float jumpForce = 1000f;
 	public float fallMult = 1.03f;
 	float iFrames = 0.5f;
-	float difficultyLevel;
-	float damage = 20;
 	float attackDelay = 0.2f;
 
-	float startHealth = 100;
-	public float health = 100;
+	float startHealth = 200;
+	public float health = 200;
 
 	// Use this for initialization
 	void Start () 
@@ -52,6 +50,7 @@ public class EnemyControler : MonoBehaviour {
 		anim = GetComponent<Animator>();
 		rb = GetComponent<Rigidbody2D>();
 		startLoc = this.gameObject.transform.position;
+		attackCheck.SetActive (false);
 	}
 
 	// Update is called once per frame
@@ -128,30 +127,24 @@ public class EnemyControler : MonoBehaviour {
 	}
 
 	void AiCheck()
-	{
-		if (difficultyLevel >= 3) //ai will begin to think more if difficulty is higher
-		{
-			if ((health / startHealth) > 0.4) //agressive if hp over 50%
-				aiState = (float)aiStateOptions.Agressive;
-			else if ((health / startHealth) < 0.3)
-				aiState = (float)aiStateOptions.Defensive;
-			else
-				aiState = (float)aiStateOptions.Defensive;
-				
-		} 
-
-		if (aiState == (float)aiStateOptions.Agressive) {//behaviour for agressive ai 
+	{		
+		if ((health / startHealth) > 0.4) //agressive if hp over 50%
+			aiState = (float)aiStateOptions.Agressive;
+		else if ((health / startHealth) < 0.3)
+			aiState = (float)aiStateOptions.Defensive;
+		else
+			aiState = (float)aiStateOptions.Defensive;
+				 
+		if (aiState == (float)aiStateOptions.Agressive) 
+		{//behaviour for agressive ai 
 			if (distance > 1.5f || distance < -1.5f)
 				approaching = true;
 			else
 				approaching = false;
 			if (distance < 1.5f && distance > -1.5f)
 				Invoke ("Attack", attackDelay);
-			if (distance > 4 || distance < -4) 
-			{
-				if (difficultyLevel >= 5)					
+			if (distance > 4 || distance < -4) 					
 					Throw ();
-			}
 		} 
 		else if (aiState == (float)aiStateOptions.Passive) 
 		{
@@ -162,7 +155,7 @@ public class EnemyControler : MonoBehaviour {
 			approaching = false;
 			if (distance < 1.5f && distance > -1.5f)
 				Attack ();
-			else if (distance < 2f && distance > -2f && difficultyLevel > 4f) 
+			else if (distance < 2f && distance > -2f) 
 			{
 				blocking = true;
 				Invoke ("DropBlock", 1f);		
@@ -171,11 +164,8 @@ public class EnemyControler : MonoBehaviour {
 				running = true;
 			else
 				running = false;
-			if (distance > 3 || distance < -3) 
-			{
-				if (difficultyLevel >= 5)					
+			if (distance > 3 || distance < -3) 					
 					Throw ();
-			}
 		}
 	}
 
@@ -244,7 +234,7 @@ public class EnemyControler : MonoBehaviour {
 		hitStun = false;
 	}
 
-	void OnHit()
+	void OnHit(float damage)
 	{
 		if (blocking)
 			health -= damage/5;
@@ -255,21 +245,21 @@ public class EnemyControler : MonoBehaviour {
 		Invoke ("HitstunEnd", iFrames);
 		rb.velocity = Vector3.zero;
 		if (targetRight)//inelegant form of knockback
-				rb.AddForce (Vector2.left * moveForce);
+			rb.AddForce (Vector2.left * moveForce);
 		else
 			rb.AddForce (Vector2.right * moveForce);
 		HealthUpdate ();
 
 
 		if (health <= 0)
-			gameControler.GetComponent<GameController> ().EnemyDeath ();
+			gameControler.GetComponent<GameController> ().AiDeath ();
 		
 	}
 
 	public void KnifeReact ()
 	{
 		blocking = true;
-		Invoke ("DropBlock", 1.5f);
+		Invoke ("DropBlock", 1f);
 	}
 
 	void DropBlock()
@@ -277,21 +267,10 @@ public class EnemyControler : MonoBehaviour {
 		blocking = false;
 	}
 
-	void DifficultyAdjustment()
-	{
-		difficultyLevel = gameControler.GetComponent<GameController> ().pSkill;
-		startHealth = 100;
-		startHealth += startHealth * (difficultyLevel - 1) * 0.2f;
-		health = startHealth;
-		aiPollRate = 0.5f / (difficultyLevel/2);
-		attackDelay = 0.2f / (difficultyLevel / 2);
-	}
-
 	public void RoundStart()
 	{
 		hitStun = false;
 		knifeReady = true;
-		DifficultyAdjustment ();
 		HealthUpdate ();
 		attackCheck.SetActive(false);
 		aiState = (float)aiStateOptions.Agressive;
@@ -301,6 +280,7 @@ public class EnemyControler : MonoBehaviour {
 	public void Reset()//used by game conroler to reset and setup rounds
 	{
 		this.gameObject.transform.position = startLoc;
+		health = startHealth;
 		approaching = false;
 		running = false;
 		CancelInvoke ();

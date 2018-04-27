@@ -33,11 +33,10 @@ public class PlayerControler : MonoBehaviour {
 	float jumpForce = 600f;
 	float fallMult = 1.03f;
 	float iFrames = 0.3f;
-	float damage = 20;
 	float difficultyLevel;
 
-	float startHealth = 100;
-	public float health = 100;
+	float startHealth = 200;
+	public float health = 200;
 
 	// Use this for initialization
 	void Start () 
@@ -159,9 +158,6 @@ public class PlayerControler : MonoBehaviour {
 
 	public void	RoundStart()
 	{
-		difficultyLevel = gameControler.GetComponent<GameController> ().pSkill;
-		damage = 20;
-		damage += damage * (difficultyLevel - 1) * 0.1f;
 		HealthUpdate ();
 		Invoke ("HitStunEnd", 4f);//used to delay caracter actions untill round countdown is done
 	}
@@ -225,7 +221,7 @@ public class PlayerControler : MonoBehaviour {
 			gameControler.GetComponent<GameController> ().KnifeReact ();
 	}
 
-	void OnHit()
+	void OnHit(float damage)
 	{
 		if (!hitStun) 
 		{

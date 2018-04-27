@@ -69,7 +69,7 @@ MonoBehaviour:
   m_MinSize: {x: 683, y: 492}
   m_MaxSize: {x: 12008, y: 14042}
   vertical: 0
-  controlID: 51
+  controlID: 85
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -208,7 +208,7 @@ MonoBehaviour:
   m_MinSize: {x: 683, y: 492}
   m_MaxSize: {x: 12008, y: 14042}
   vertical: 1
-  controlID: 52
+  controlID: 86
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -233,7 +233,7 @@ MonoBehaviour:
   m_MinSize: {x: 683, y: 221}
   m_MaxSize: {x: 12008, y: 4021}
   vertical: 0
-  controlID: 53
+  controlID: 87
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -254,13 +254,13 @@ MonoBehaviour:
     height: 673
   m_MinSize: {x: 204, y: 221}
   m_MaxSize: {x: 4004, y: 4021}
-  m_ActualView: {fileID: 16}
+  m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 16}
   - {fileID: 17}
   - {fileID: 12}
-  m_Selected: 0
-  m_LastSelected: 1
+  m_Selected: 1
+  m_LastSelected: 2
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -286,10 +286,12 @@ MonoBehaviour:
     x: 406
     y: 92
     width: 895
-    height: 650
+    height: 652
   m_ViewPositions:
-    m_KeySerializationHelper: []
-    m_ValueSerializationHelper: []
+    m_KeySerializationHelper:
+    - {fileID: 1107434743825044702, guid: f8105d40ffc5c654ebbe057d00c18636, type: 2}
+    m_ValueSerializationHelper:
+    - {x: 597, y: 371.2}
   m_PreviewAnimator: {fileID: 0}
   m_AnimatorController: {fileID: 9100000, guid: f8105d40ffc5c654ebbe057d00c18636,
     type: 2}
@@ -355,8 +357,8 @@ MonoBehaviour:
   m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 9a260000
-    m_LastClickedID: 9882
+    m_SelectedIDs: 72260000
+    m_LastClickedID: 9842
     m_ExpandedIDs: 000000001226000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -413,7 +415,7 @@ MonoBehaviour:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 1
-    m_ExpandedInstanceIDs: 982600001a260000122600003e2700005e28000070270000622600004a260000
+    m_ExpandedInstanceIDs: 982600001a260000122600003e2700005e2800007027000062260000d42700004a260000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -501,9 +503,9 @@ MonoBehaviour:
     height: 652
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 6e260000
+    m_SelectedIDs: 86270000
     m_LastClickedID: 0
-    m_ExpandedIDs: 1afcffff00000000c0260000c8260000
+    m_ExpandedIDs: 1afcffff00000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -558,9 +560,9 @@ MonoBehaviour:
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 2.7499337, y: -0.1894762, z: 0}
+    m_Target: {x: 2.2045977, y: -1.7273542, z: 0}
     speed: 2
-    m_Value: {x: 2.7499337, y: -0.1894762, z: 0}
+    m_Value: {x: 2.2045977, y: -1.7273542, z: 0}
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
@@ -587,9 +589,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 14.974104
+    m_Target: 11.668748
     speed: 2
-    m_Value: 14.974104
+    m_Value: 11.668748
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -625,7 +627,7 @@ MonoBehaviour:
     x: 406
     y: 92
     width: 895
-    height: 650
+    height: 652
   m_MaximizeOnPlay: 0
   m_Gizmos: 0
   m_Stats: 0
@@ -646,7 +648,7 @@ MonoBehaviour:
     m_HSlider: 0
     m_VSlider: 0
     m_IgnoreScrollWheelUntilClicked: 0
-    m_EnableMouseInput: 0
+    m_EnableMouseInput: 1
     m_EnableSliderZoom: 0
     m_UniformScale: 1
     m_UpDirection: 1
@@ -655,24 +657,24 @@ MonoBehaviour:
       x: 0
       y: 17
       width: 895
-      height: 633
-    m_Scale: {x: 0.8242187, y: 0.82421875}
-    m_Translation: {x: 447.5, y: 316.5}
+      height: 635
+    m_Scale: {x: 0.82682294, y: 0.82682294}
+    m_Translation: {x: 447.5, y: 317.5}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -542.9384
+      x: -541.22833
       y: -384
-      width: 1085.8768
+      width: 1082.4567
       height: 768
     m_MinimalGUI: 1
-  m_defaultScale: 0.82421875
+  m_defaultScale: 0.82682294
   m_TargetTexture: {fileID: 0}
   m_CurrentColorSpace: 0
-  m_LastWindowPixelSize: {x: 895, y: 650}
+  m_LastWindowPixelSize: {x: 895, y: 652}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 01000000000100000100

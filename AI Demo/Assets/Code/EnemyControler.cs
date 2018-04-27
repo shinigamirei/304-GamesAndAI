@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyControler : MonoBehaviour {
 
@@ -22,14 +23,17 @@ public class EnemyControler : MonoBehaviour {
 	public bool attacking = false;
 	public bool blocking = false;
 	public bool dodge = false;
-	bool approaching = false;
-	bool running = false;
 	public bool hitStun = false;
 	bool knifeReady = true;
 
+	//ai specific 
+	bool approaching = false;
+	bool running = false;
 	enum aiStateOptions{Agressive,Passive,Defensive}
 	float aiPollRate = 0.5f;
 	float aiState;
+	public Text stateDisplay;
+	public Text distanceDisplay;
 
 	public float attackTiming = 0f;
 	public float attackCd = 0.3f;
@@ -56,10 +60,19 @@ public class EnemyControler : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
+		if (aiState == (int)aiStateOptions.Agressive)
+			stateDisplay.text = ("AI State: Agressive");
+		else if (aiState == (int)aiStateOptions.Defensive)
+			stateDisplay.text = ("AI State: Defensive");
+		else
+			stateDisplay.text = ("AI State: Passive");
+
 		grounded = Physics2D.Linecast (transform.position, groundCheck.position, 1 << LayerMask.NameToLayer ("Ground"));
 
 		if (target != null)
 			distance = gameObject.transform.position.x - target.transform.position.x;
+
+		distanceDisplay.text = ("Distance:" + distance);
 
 		if (attacking)
 		{

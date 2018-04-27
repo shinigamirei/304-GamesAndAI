@@ -24,7 +24,7 @@ public class GameController : MonoBehaviour {
 	void Start()
 	{
 		generalDisplay1.enabled = true;
-		generalDisplay1.text = ("Input A Series Number");
+		generalDisplay1.text = ("Press numpad1 to start");
 		generalDisplay2.enabled = false;
 	}
 

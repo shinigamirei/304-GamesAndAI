@@ -1,18 +1,17 @@
 fileFormatVersion: 2
-guid: eef7719a53ea9f745bea75a0e635f6e8
-timeCreated: 1523883445
+guid: 0cb4a443c6c65ef418c4b538a90f7602
+timeCreated: 1524831173
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: mvp_sheet_3_0
-    21300002: mvp_sheet_3_1
-    21300004: mvp_sheet_3_3
-    21300006: mvp_sheet_3_5
-    21300008: mvp_sheet_3_6
-    21300010: mvp_sheet_3_7
-    21300012: mvp_sheet_3_8
-    21300014: mvp_sheet_3_9
-    21300016: mvp_sheet_3_10
+    21300000: my worst sprite ever_0
+    21300002: my worst sprite ever_1
+    21300004: my worst sprite ever_2
+    21300006: my worst sprite ever_4
+    21300008: my worst sprite ever_6
+    21300010: my worst sprite ever_7
+    21300012: my worst sprite ever_8
+    21300014: my worst sprite ever_9
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -54,7 +53,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 20
+  spritePixelsToUnits: 30
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -84,127 +83,113 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: mvp_sheet_3_0
+      name: my worst sprite ever_0
       rect:
         serializedVersion: 2
-        x: 2
-        y: 81
-        width: 21
-        height: 37
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: mvp_sheet_3_1
-      rect:
-        serializedVersion: 2
-        x: 24
-        y: 81
-        width: 25
-        height: 37
+        x: 7
+        y: 118
+        width: 24
+        height: 59
       alignment: 9
-      pivot: {x: 0.4285959, y: 0.5}
+      pivot: {x: 0.46567115, y: 0.51396435}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: mvp_sheet_3_3
+      name: my worst sprite ever_1
       rect:
         serializedVersion: 2
-        x: 50
-        y: 81
-        width: 30
-        height: 37
+        x: 34
+        y: 121
+        width: 33
+        height: 56
       alignment: 9
-      pivot: {x: 0.36268437, y: 0.5037114}
+      pivot: {x: 0.32523486, y: 0.48528752}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: mvp_sheet_3_5
+      name: my worst sprite ever_2
       rect:
         serializedVersion: 2
-        x: 82
-        y: 81
-        width: 30
-        height: 37
+        x: 68
+        y: 117
+        width: 31
+        height: 59
       alignment: 9
-      pivot: {x: 0.35353038, y: 0.5}
+      pivot: {x: 0.35382572, y: 0.51396435}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: mvp_sheet_3_6
+      name: my worst sprite ever_4
       rect:
         serializedVersion: 2
-        x: 2
-        y: 41
-        width: 26
-        height: 37
+        x: 102
+        y: 117
+        width: 31
+        height: 59
       alignment: 9
-      pivot: {x: 0.41021675, y: 0.4962888}
+      pivot: {x: 0.35382524, y: 0.5174553}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: mvp_sheet_3_7
+      name: my worst sprite ever_6
       rect:
         serializedVersion: 2
-        x: 33
-        y: 40
-        width: 25
-        height: 40
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 139
+        y: 116
+        width: 33
+        height: 59
+      alignment: 9
+      pivot: {x: 0.34395945, y: 0.5139641}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: mvp_sheet_3_8
+      name: my worst sprite ever_7
       rect:
         serializedVersion: 2
-        x: 60
-        y: 43
-        width: 40
-        height: 25
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 7
+        y: 55
+        width: 31
+        height: 59
+      alignment: 9
+      pivot: {x: 0.36711404, y: 0.5174553}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: mvp_sheet_3_9
+      name: my worst sprite ever_8
       rect:
         serializedVersion: 2
-        x: 3
-        y: 2
-        width: 20
-        height: 36
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 43
+        y: 54
+        width: 35
+        height: 59
+      alignment: 9
+      pivot: {x: 0.3057966, y: 0.51396424}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: mvp_sheet_3_10
+      name: my worst sprite ever_9
       rect:
         serializedVersion: 2
-        x: 27
-        y: 2
-        width: 21
-        height: 37
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 84
+        y: 53
+        width: 29
+        height: 59
+      alignment: 9
+      pivot: {x: 0.37925747, y: 0.5174553}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
